@@ -1,0 +1,120 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #3aa0c3d6;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.head,
+.chance {
+    display: flex;
+    justify-content: center;
+}
+
+.head h2 {
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+    font-size: 5vw;
+}
+
+.chance p {
+    font-size: 2.3vw;
+    font-weight: 600;
+}
+
+.row-1,
+.row-2,
+.row-3 {
+    justify-content: center;
+
+    display: flex;
+    flex-direction: row;
+    width: 61vw;
+    margin: auto;
+}
+
+.row-1 {
+    margin-top: 40px;
+}
+
+#box1,
+#box2,
+#box3,
+#box4,
+#box5,
+#box6,
+#box7,
+#box8,
+#box9 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 20vw;
+    border: 0.15rem solid #3e4378e6;
+    float: left;
+    font-size: 18vw;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+.winner {
+    border: 2px solid #3e4378e6;
+    border-radius: 4vw;
+    font-size: 2.8vw;
+}
+
+#box1,
+#box4,
+#box7 {
+    clear: left;
+    border-left: none;
+}
+
+#box1,
+#box2,
+#box3 {
+    border-top: none;
+}
+
+#box3,
+#box6,
+#box9 {
+    border-right: none;
+}
+
+#box7,
+#box8,
+#box9 {
+    border-bottom: none;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+#btn {
+    border-radius: 4rem;
+    border: 2px solid #323985;
+    width: 6rem;
+    margin: 5vw 0;
+    padding: 0.2vw 0;
+    background-color: #3aa0c3d6;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Anek Malayalam', sans-serif;
+
+}

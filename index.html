@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100&family=Quicksand:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Tic Tac Toe</title>
+
+   
+</head>
+
+<body>
+    <div class="main">
+        <div class="head">
+            <h2>Tic Tac Toe</h2>
+        </div>
+        <div class="chance">
+            <p>X's Turn</p>
+        </div>
+        <div class="row-1">
+            <div id="box1" onclick="main(this)"></div>
+            <div id="box2" onclick="main(this)"></div>
+            <div id="box3" onclick="main(this)"></div>
+        </div>
+        <div class="row-2">
+            <div id="box4" onclick="main(this)"></div>
+            <div id="box5" onclick="main(this)"></div>
+            <div id="box6" onclick="main(this)"></div>
+        </div>
+        <div class="row-3">
+            <div id="box7" onclick="main(this)"></div>
+            <div id="box8" onclick="main(this)"></div>
+            <div id="box9" onclick="main(this)"></div>
+        </div>
+
+
+    </div>
+
+
+    <div class="btn">
+        <input id="btn" type="button" onclick="reset()" value="RESET">
+    </div>
+
+
+
+    <script>
+        var count = 1
+        function main(temp) {
+            if (count <= 9) {
+
+                if (count % 2 == 0) {
+                    document.getElementById(temp.id).innerHTML = "O"
+                    document.getElementById(temp.id).style.color = "white"
+                    document.querySelector('.chance').innerHTML = "X's Turn"
+                    document.querySelector('.chance').style.fontSize = '2.3vw'
+                    document.querySelector('.chance').style.fontWeight = '600'
+
+                }
+                else if (count % 2 != 0) {
+                    document.getElementById(temp.id).innerHTML = "X"
+                    document.getElementById(temp.id).style.color = "#4a4a4e"
+                    document.querySelector('.chance').innerHTML = "O's Turn"
+                    document.querySelector('.chance').style.fontSize = '2.3vw'
+                    document.querySelector('.chance').style.fontWeight = '600'
+                }
+                count = count + 1;
+                console.log(count);
+                if (checkWin()) {
+                    if (count % 2 == 0) {
+                        document.querySelector('.chance').innerHTML = 'Winner : X'
+
+                    }
+                    else {
+                        document.querySelector('.chance').innerHTML = 'Winner : O'
+
+                    }
+                    setTimeout(reset, 1000);
+
+
+                }
+
+            }
+            else {
+                alert('Match Has Been Drawn!')
+                reset()
+            }
+        }
+
+        function checkWin() {
+            if (document.getElementById('box1').innerHTML != "" && document.getElementById('box1').innerHTML == document.getElementById('box2').innerHTML && document.getElementById('box2').innerHTML == document.getElementById('box3').innerHTML) {
+                return true;
+            }
+            else if (document.getElementById('box4').innerHTML != "" && document.getElementById('box4').innerHTML == document.getElementById('box5').innerHTML && document.getElementById('box5').innerHTML == document.getElementById('box6').innerHTML) {
+                return true;
+            }
+            else if (document.getElementById('box7').innerHTML != "" && document.getElementById('box7').innerHTML == document.getElementById('box8').innerHTML && document.getElementById('box8').innerHTML == document.getElementById('box9').innerHTML) {
+                return true;
+            }
+            else if (document.getElementById('box1').innerHTML != "" && document.getElementById('box4').innerHTML == document.getElementById('box1').innerHTML && document.getElementById('box4').innerHTML == document.getElementById('box7').innerHTML) {
+                return true;
+            }
+            else if (document.getElementById('box3').innerHTML != "" && document.getElementById('box3').innerHTML == document.getElementById('box6').innerHTML && document.getElementById('box6').innerHTML == document.getElementById('box9').innerHTML) {
+                return true;
+            }
+            else if (document.getElementById('box2').innerHTML != "" && document.getElementById('box2').innerHTML == document.getElementById('box5').innerHTML && document.getElementById('box5').innerHTML == document.getElementById('box8').innerHTML) {
+                return true;
+            }
+            else if (document.getElementById('box1').innerHTML != "" && document.getElementById('box5').innerHTML == document.getElementById('box1').innerHTML && document.getElementById('box5').innerHTML == document.getElementById('box9').innerHTML) {
+                return true;
+            }
+            else if (document.getElementById('box3').innerHTML != "" && document.getElementById('box3').innerHTML == document.getElementById('box5').innerHTML && document.getElementById('box5').innerHTML == document.getElementById('box7').innerHTML) {
+                return true;
+            }
+        }
+        function reset() {
+            for (var i = 1; i <= 9; i++) {
+                document.getElementById('box' + i).innerHTML = "";
+            }
+            document.querySelector('.chance').innerHTML = "X's Turn"
+            document.querySelector('.chance').style.fontSize = '2.3vw'
+            document.querySelector('.chance').style.fontWeight = '600'
+
+            count = 1
+        }
+    </script>
+
+
+
+</body>
+
+</html>
